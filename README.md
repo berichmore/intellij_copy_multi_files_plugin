@@ -1,0 +1,1 @@
+# intellij_copy_multi_files_plugin

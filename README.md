@@ -1,4 +1,4 @@
-#  Multi Copy - IntelliJ Plugin
+![sandbox trouble shooting1](https://github.com/user-attachments/assets/e7e9e1f0-b696-418d-906a-9b2fb06c65a1)#  Multi Copy - IntelliJ Plugin
 
 IntelliJ IDEA 플러그인으로, **여러 파일을 선택하고 그 내용을 한 번에 클립보드에 복사**할 수 있는 기능입니다.
 
@@ -125,9 +125,13 @@ IDE 외부에서 수작업으로 복사하는 과정을 줄이기 위해
 
 ## 트러블슈팅 1
 sandbox trouble shooting1- 사진
+![sandbox trouble shooting1](https://github.com/user-attachments/assets/91c70b39-acfc-449b-af13-4c5d3e38ab47)
+
 
 GPT에 꼬리물기 시도
 sandbox trouble shooting1-1- 사진
+![sandbox trouble shooting1-1](https://github.com/user-attachments/assets/1a87d3bf-8b63-43bc-a01e-bbd68320bacf)
+
 
 
 정리해보니 
@@ -150,13 +154,19 @@ sandbox trouble shooting1-1- 사진
 
 
 sandbox trouble shooting 2 checking -사진
+![sandbox trouble shooting2 checking](https://github.com/user-attachments/assets/da5f8f44-8570-4b0a-b359-1e154112ebdb)
+
 
 plugin.xml의 
 <action>에 있는 group-id="ProjectViewPopupMenu로 변경
 
 sandbox trouble shooting 2-1 -사진
+![sandbox trouble shooting 2-1](https://github.com/user-attachments/assets/f66487e2-d30b-48af-bc84-620c07917c9c)
+
 
 sandbox trouble shooting 2-2 -사진
+![sandbox trouble shooting 2-2](https://github.com/user-attachments/assets/d112eeeb-8457-4dcf-8e30-d756401d3655)
+
 
 해결
 
@@ -164,6 +174,8 @@ sandbox trouble shooting 2-2 -사진
 ## 트러블슈팅 3
 
 sandbox trouble shooting3 error log
+![sandbox trouble shooting3 error log](https://github.com/user-attachments/assets/17af5835-3058-4977-808e-db79c7a8f5ad)
+
 
 분명 기능이 제대로 동작함에도 
 다수의 파일 선택 후 오른쪽마우스를 눌러서 프로젝트 뷰팝업 메뉴를 띄우면 
@@ -193,6 +205,8 @@ OLD.EDT가 무언가해서 또 찾아봄
 그래서 코드를 새로 추가함 
 
 sandbox trouble shooting 3-1 add method  - 사진
+![sandbox trouble shooting 3-1 add method](https://github.com/user-attachments/assets/adacfecc-8c3a-49bf-ad35-6cd30f91825d)
+
 
 이후로 에러메시지는 표시되지 않았다.
 

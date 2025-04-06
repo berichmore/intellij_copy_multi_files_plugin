@@ -1,16 +1,48 @@
-# intellij_copy_multi_files_plugin
-
-
-
-
-
 #  Multi Copy - IntelliJ Plugin
 
 IntelliJ IDEA 플러그인으로, **여러 파일을 선택하고 그 내용을 한 번에 클립보드에 복사**할 수 있는 기능입니다.
 
 ---
+## 사용 기술 및 버전 (intellij_copy_multi_files_plugin 기준)
 
-## 💡 기획 의도
+###  IDE
+| IDE 종류 | 버전 |
+|----------|-------|
+| IntelliJ IDEA Ultimate | 2024.3.4.1 |
+
+---
+
+### ⚙ Plugin 개발 관련
+| 기술 | 버전 / 정보 |
+|------|--------------|
+| Kotlin | 1.9.25 (IntelliJ 기본 지원) |
+| Gradle | 8.x (IntelliJ Plugin Dev 환경) |
+| IntelliJ Platform Plugin SDK | 243.19416.15 |
+| IntelliJ Gradle Plugin | org.jetbrains.intellij 1.17.3 |
+| IntelliJ Platform Plugin SDK | 2024.1.7 (Build #IC-241.x) |
+| Plugin Build Compatibility | `sinceBuild = 241`, `untilBuild = 243.*` |
+| Java | JDK 17 (plugin 개발에 사용됨) |
+| 테스트 환경 | ✅ Sandbox 실행 성공 / ⚠️ 로컬 플러그인 설치 실패
+| 로컬 설치 테스트 | ⚠️ 부분 실패 (빌드 후 설치 시 기능 미작동)
+
+
+
+
+---
+
+### 📦 패키징 및 배포 관련
+| 항목 | 값 |
+|------|------|
+| 플러그인 ID | `com.jay.intellij_copy_multi_files_plugin` |
+| 플러그인 버전 | `1.0-SNAPSHOT` |
+| 사용 언어 | Kotlin |
+| 주요 기능 | 선택된 다수 파일의 내용을 클립보드에 병합 복사 |
+| 플러그인 실행 위치 | Project View 우클릭 메뉴 (`alt + F` 단축키 지원) |
+| 배포 준비 | `signPlugin`, `publishPlugin` 설정 포함 (`ENV 환경변수 기반`) |
+
+---
+
+## 기획 의도
 
 개발 중 여러 파일의 내용을 한꺼번에 복사할 일이 많았습니다.  
 IDE 외부에서 수작업으로 복사하는 과정을 줄이기 위해  
@@ -31,7 +63,7 @@ IDE 외부에서 수작업으로 복사하는 과정을 줄이기 위해
 
 ---
 
-## ⚙️ 주요 기능
+## ⚙ 주요 기능
 
 - 프로젝트 폴더에서 다수의 파일 선택
 - 우클릭 메뉴에서 “Copy Multi File Contents” 실행
@@ -41,7 +73,7 @@ IDE 외부에서 수작업으로 복사하는 과정을 줄이기 위해
 
 ---
 
-## 🔍 기술 포인트
+##  기술 포인트
 
 - `plugin.xml`을 통한 Action 등록 및 메뉴 바인딩
 - `CommonDataKeys.VIRTUAL_FILE_ARRAY` 활용
@@ -51,7 +83,7 @@ IDE 외부에서 수작업으로 복사하는 과정을 줄이기 위해
 
 ---
 
-## 🧠 개발 후기
+##  개발 후기
 
 단순 기능 구현이 아닌, IntelliJ 내부 구조와  
 플러그인 동작 원리를 처음부터 학습하면서 진행했습니다.
@@ -60,7 +92,7 @@ IDE 외부에서 수작업으로 복사하는 과정을 줄이기 위해
 - 파일이 복사되지 않는 문제를 디버깅하며 `virtualFileArray`의 개념도 알게 되었습니다.
 - `plugin.xml` 설정 순서와 그룹 배치도 직접 테스트하면서 익혔습니다.
 
-👉 이 프로젝트를 통해 **단순 구현이 아닌 구조적 이해와 문제 해결 능력**을 키웠습니다.
+ 이 프로젝트를 통해 **단순 구현이 아닌 구조적 이해와 문제 해결 능력**을 키웠습니다.
 
 ---
 
@@ -73,7 +105,7 @@ IDE 외부에서 수작업으로 복사하는 과정을 줄이기 위해
 
 ## 📸 사용 예시
 
-> (원한다면 사용 시 캡처도 추가 가능)
+
 
 ---
 

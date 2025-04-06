@@ -27,7 +27,6 @@ IntelliJ IDEA 플러그인으로, **여러 파일을 선택하고 그 내용을 
 
 
 
-
 ---
 
 ### 📦 패키징 및 배포 관련
@@ -119,6 +118,122 @@ IDE 외부에서 수작업으로 복사하는 과정을 줄이기 위해
 
 
 이렇게 파일별 구분이 되면서 원하는대로 기능 구현 완성
+
+
+
+### 🛠️ 트러블슈팅
+
+## 트러블슈팅 1
+sandbox trouble shooting1- 사진
+
+GPT에 꼬리물기 시도
+sandbox trouble shooting1-1- 사진
+
+
+정리해보니 
+1.file.inputStream.readText()
+마켓 등록, JetBrains 공식 플러그인   => 선택
+
+2.LocalFileSystem.getInstance().findFileByPath()
+불안정
+
+3.Path.of(file.path)  
+
+하드코어(보안문제), 리눅스 or 윈도우 경로차이발생, 파일삭제시 예외 발생 가능
+하드코어란..
+인텔리제이 플랫폼을 완전무시하고 
+운영체제(OS)의 로컬 파일 시스템에 직접 접근 
+--> 인텔리제이가 허용하지 않음 -> 지양
+--
+
+## 트러블슈팅 2
+
+
+sandbox trouble shooting 2 checking -사진
+
+plugin.xml의 
+<action>에 있는 group-id="ProjectViewPopupMenu로 변경
+
+sandbox trouble shooting 2-1 -사진
+
+sandbox trouble shooting 2-2 -사진
+
+해결
+
+
+## 트러블슈팅 3
+
+sandbox trouble shooting3 error log
+
+분명 기능이 제대로 동작함에도 
+다수의 파일 선택 후 오른쪽마우스를 눌러서 프로젝트 뷰팝업 메뉴를 띄우면 
+저런 오류메시지가 출력되었다
+기능은 제대로 동작하는데 왜??? 하고 찾아보니
+
+**"ActionUpdateThread.OLD_EDT"가 곧 제거될 예정이므로,
+플러그인 액션 클래스에서 명시적으로 `getActionUpdateThread()` 메서드를 오버라이드해라"**
+
+라고 IntelliJ가 권장한다고 메시지를 띄우는 것
+
+OLD.EDT가 무언가해서 또 찾아봄
+
+ EDT vs BGT(Background)
+
+- **EDT** : UI 이벤트 쓰레드 (UI 관련 작업)
+- **BGT** : 백그라운드 (무거운 연산이나 I/O 등을 돌려도 되는 쓰레드)
+
+플러그인 액션 대부분은 UI와 밀접해서 **EDT**가 적절
+
+만약 파일 검색 같은 무거운 작업을 하면서 UI를 잠그고 싶지 않다면
+
+**BGT**를 고려해볼 수도 있지만,
+
+일반적인 **우클릭 메뉴 액션**이라면 `EDT`가 안전
+
+그래서 코드를 새로 추가함 
+
+sandbox trouble shooting 3-1 add method  - 사진
+
+이후로 에러메시지는 표시되지 않았다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 2
+
+## 1. Sandbox 테스트 성공 후 로컬 설치 시 기능 미작동 문제
+
+**문제점:**  
+Sandbox 환경에서는 플러그인이 정상적으로 작동했지만, 로컬 환경에서 직접 빌드하여 설치했을 때 기능이 제대로 동작하지 않는 문제가 발생했습니다.
+`
+**원인 분석:**  
+- Sandbox와 로컬 환경의 설정 차이
+- 플러그인 메타데이터의 누락 또는 오류
+- 의존성 문제
+
+**해결 시도:**  
+- `plugin.xml` 파일의 설정을 재검토하고 수정
+- Gradle 빌드 스크립트에서 의존성 및 버전 확인
+- IntelliJ IDEA의 플러그인 로딩 방식 조사
+
+**현재 상태:**  
+여러 가지 시도를 했지만, 로컬 설치 시의 문제는 아직 완전히 해결되지 않았습니다. 앞으로도 지속적으로 원인을 분석하고 해결 방안을 모색할 예정입니다.
+
 
 
 

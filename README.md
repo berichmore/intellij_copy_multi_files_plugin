@@ -8,31 +8,39 @@ IntelliJ IDEA 플러그인으로, **여러 파일을 선택하고 그 내용을 
 ###  IDE
 | IDE 종류 | 버전 |
 |----------|-------|
-| IntelliJ IDEA Ultimate | 2024.1.7 |
+| IntelliJ IDEA Ultimate | 2024.3.4.1 |
 
 ---
 
 ### ⚙ Plugin 개발 관련
 | 기술 | 버전 / 정보 |
 |------|--------------|
-| Kotlin | 1.9.x (IntelliJ 기본 지원) |
+| Kotlin | 1.9.25 (IntelliJ 기본 지원) |
 | Gradle | 8.x (IntelliJ Plugin Dev 환경) |
 | IntelliJ Platform Plugin SDK | 243.19416.15 |
 | IntelliJ Gradle Plugin | org.jetbrains.intellij 1.17.3 |
+| IntelliJ Platform Plugin SDK | 2024.1.7 (Build #IC-241.x) |
+| Plugin Build Compatibility | `sinceBuild = 241`, `untilBuild = 243.*` |
 | Java | JDK 17 (plugin 개발에 사용됨) |
-| Sandbox 테스트 | ✅ 성공 |
+| 테스트 환경 | ✅ Sandbox 실행 성공 / ⚠️ 로컬 플러그인 설치 실패
 | 로컬 설치 테스트 | ⚠️ 부분 실패 (빌드 후 설치 시 기능 미작동)
+
+
+
 
 ---
 
-### 📝 기타
-| 항목 | 내용 |
+### 📦 패키징 및 배포 관련
+| 항목 | 값 |
 |------|------|
 | 플러그인 ID | `com.jay.intellij_copy_multi_files_plugin` |
-| Action 등록 ID | `com.jay.CopyMultiFilesAction` |
-| 구현 언어 | Kotlin |
-| 플러그인 실행 위치 | Project View (우클릭 메뉴) |
-| 주요 기능 | 선택된 여러 파일의 내용을 합쳐서 클립보드로 복사 |
+| 플러그인 버전 | `1.0-SNAPSHOT` |
+| 사용 언어 | Kotlin |
+| 주요 기능 | 선택된 다수 파일의 내용을 클립보드에 병합 복사 |
+| 플러그인 실행 위치 | Project View 우클릭 메뉴 (`alt + F` 단축키 지원) |
+| 배포 준비 | `signPlugin`, `publishPlugin` 설정 포함 (`ENV 환경변수 기반`) |
+
+---
 
 ## 기획 의도
 

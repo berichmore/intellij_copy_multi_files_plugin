@@ -1,3 +1,4 @@
+# 오픈소스기여 등록예정
 #  Multi Copy - IntelliJ Plugin
 
 IntelliJ IDEA 플러그인으로, **여러 파일을 선택하고 그 내용을 한 번에 클립보드에 복사**할 수 있는 기능입니다.

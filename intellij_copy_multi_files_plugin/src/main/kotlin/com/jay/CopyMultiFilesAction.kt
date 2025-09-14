@@ -36,10 +36,21 @@ class CopyMultiFilesAction : AnAction() {
             files.forEachIndexed { index, file ->
                 //디렉토리는 패스
                 if (!file.isDirectory) {
-                    //파일 내용을 읽기 (Fileutil.LoadFile() 사용 예)
-                    val fileOnDisk = file.toNioPath().toFile()
-                    val content: String = FileUtil.loadFile(fileOnDisk, file.charset.name())
 
+                    // 리팩토링 전 - 파일 내용을 읽기 (Fileutil.LoadFile() 사용 예)
+//                    val fileOnDisk = file.toNioPath().toFile()
+//                    val content: String = FileUtil.loadFile(fileOnDisk, file.charset.name())
+
+                    // 리팩토링 후 : Intelli J 권장방식 설정
+                    val content: String = try {
+                        //성공 후 실행 코드
+                        file.inputStream.bufferedReader(file.charset).use { reader ->
+                            reader.readText()
+                        }
+                    } catch (e: Exception) {
+                            //파일 읽기 실패 시 예외 처리
+                            "[ERROR: Could not read file '${file.name}']"
+                    }
                     //파일 제목 + 내용 구분 선
                     appendLine("===== File #${index + 1}: ${file.name} =====")
                     appendLine(content)

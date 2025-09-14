@@ -270,10 +270,17 @@ Sandbox 환경에서는 플러그인이 정상적으로 작동했지만, 로컬 
 - IntelliJ IDEA의 플러그인 로딩 방식 조사
 
 **현재 상태:**  
-여러 가지 시도를 했지만, 로컬 설치 시의 문제는 아직 완전히 해결되지 않았습니다. 앞으로도 지속적으로 원인을 분석하고 해결 방안을 모색할 예정입니다.
+여러 가지 시도를 했지만, 로컬 설치 시의 문제는 아직 완전히 해결되지 않았습니다. 앞으로도 지속적으로 원인을 분석하고 해결 방안을 모색할 예정입니다.  
 
-
+    
 - Email: berichmore@naver.com
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 
 
 ---

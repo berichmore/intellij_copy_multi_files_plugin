@@ -41,7 +41,7 @@ class CopyMultiFilesAction : AnAction() {
 //                    val fileOnDisk = file.toNioPath().toFile()
 //                    val content: String = FileUtil.loadFile(fileOnDisk, file.charset.name())
 
-                    // 리팩토링 후 : Intelli J 권장방식 설정
+                    // 리팩토링 후 : Intelli J 권장방식 설정 - 동작 확인
                     val content: String = try {
                         //성공 후 실행 코드
                         file.inputStream.bufferedReader(file.charset).use { reader ->

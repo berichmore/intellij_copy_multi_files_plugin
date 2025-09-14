@@ -18,14 +18,11 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    - 원하는 파일들을 여러개 선택 후 오른쪽마우스 + Copy Multi File Contents를 클릭하시면 됩니다.
-    - 붙여넣기 후 파일들을 구분하며 코드내용이 표시가 됩니다.
-    - 저의 첫 플러그인을 다운로드 해 주셔서 너무나 감사드립니다.
-
     A simple plugin to copy the content of multiple selected files into clipboard at once<br>
     - Select multiple files in the Project View. <br>
     - Right-click and choose 'Copy Multi File Contents'. <br>
     - The contents of all selected files will be combined and copied.
+    - thank you for using my plug-in
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.

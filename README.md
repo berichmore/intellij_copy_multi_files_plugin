@@ -1,7 +1,7 @@
 
 #  Multi-File Content Copier - IntelliJ Plugin
 
-IntelliJ Marketplace에서 설치하기 (승인 후 링크 추가예정)
+IntelliJ Marketplace에서 설치하기 ([마켓 승인](https://plugins.jetbrains.com/plugin/28474-multi-file-content-copier/edit)](https://plugins.jetbrains.com/plugin/28474-multi-file-content-copier?noRedirect=true)
 
 IntelliJ IDEA 플러그인으로, **여러 파일을 선택하고 그 내용을 한 번에 클립보드에 복사**할 수 있는 기능입니다.
 

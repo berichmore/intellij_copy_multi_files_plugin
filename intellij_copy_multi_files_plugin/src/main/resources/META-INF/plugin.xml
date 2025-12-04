@@ -10,8 +10,8 @@
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor email="berichmore@naver.com" url="https://github.com/berichmore">Zero</vendor>
     <!-- 플러그인 버전, 호환 IntelliJ 버전 등의 태그 -->
-    <idea-version since-build="241" until-build="243.*" />
-    <version>1.0.0</version>
+    <idea-version since-build="231" />
+    <version>1.0.3</version>
 
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
@@ -32,6 +32,11 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup
+                displayType="BALLOON"
+                id="Copy Multi Files Notification"/>
+<!--                key ="notification.group.copy.multi.files"-->
+<!--        />-->
 
     </extensions>
     <actions>
@@ -44,7 +49,7 @@
             <add-to-group group-id="ProjectViewPopupMenu"
                           anchor="last" />
 
-            <keyboard-shortcut keymap="$default" first-keystroke="alt F"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt C"/>
         </action>
     </actions>
 

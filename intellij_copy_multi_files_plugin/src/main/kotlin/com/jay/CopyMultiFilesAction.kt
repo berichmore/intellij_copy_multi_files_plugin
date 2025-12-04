@@ -1,5 +1,8 @@
 package com.jay
 
+import com.intellij.notification.NotificationGroup
+import com.intellij.notification.NotificationGroupManager
+import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -49,7 +52,7 @@ class CopyMultiFilesAction : AnAction() {
                         }
                     } catch (e: Exception) {
                             //파일 읽기 실패 시 예외 처리
-                            "[ERROR: Could not read file '${file.name}']"
+                            "[ERROR: Could not read file '${file.name}': '${e.message}']"
                     }
                     //파일 제목 + 내용 구분 선
                     appendLine("===== File #${index + 1}: ${file.name} =====")
@@ -58,10 +61,26 @@ class CopyMultiFilesAction : AnAction() {
                 }
             }
         }
+        // 1. 내용이 없으면 중단 (선택된 파일들이 모두 빈 파일일 경우 등등
+        if(combinedText.isEmpty()) return
 
-        //클립보드에 복사
-        val clipboard = Toolkit.getDefaultToolkit().systemClipboard
-        clipboard.setContents(StringSelection(combinedText), null)
+        // 2. IntelliJ 전용 클립보드 매니저 사용 (히스토리에 남음)
+        CopyPasteManager.getInstance().setContents(StringSelection(combinedText))
+
+        // 3. 우측 하단 알림 띄우기 (사용자 피드백)
+        NotificationGroupManager.getInstance()
+            .getNotificationGroup("Copy Multi Files Notification")
+            .createNotification(
+                "copied ${files.size} files to clipboard",
+                NotificationType.INFORMATION
+            )
+            .notify(e.project)
+
+
+
+//        //클립보드에 복사
+//        val clipboard = Toolkit.getDefaultToolkit().systemClipboard
+//        clipboard.setContents(StringSelection(combinedText), null)
 
         //또는 IntelliJ CopyPasteManager 쓸 수도 있음
 //        CopyPasteManager.getInstance().setContents(StringSelection(combinedText))

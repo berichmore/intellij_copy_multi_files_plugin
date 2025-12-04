@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.jay"
-version = "1.0.2"
+version = "1.0.3"
 
 repositories {
     mavenCentral()
@@ -34,8 +34,8 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("241")
-        untilBuild.set("243.*")
+        sinceBuild.set("231")
+//        untilBuild.set("243.*")
     }
 
     signPlugin {
